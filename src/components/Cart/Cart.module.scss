@@ -1,0 +1,38 @@
+.cart {
+  border-radius: 6px;
+  border-style: solid;
+  border-color: #72ccca;
+
+  width: 10%;
+
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all 0.2s;
+
+  &__heading {
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  &__amount {
+    background-color: #72ccca;
+    color: #282828;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 1rem;
+    width: 30%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(2px);
+  }
+}
