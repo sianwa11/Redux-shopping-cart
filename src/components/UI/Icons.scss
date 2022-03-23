@@ -1,0 +1,12 @@
+.icon_btn {
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(1px);
+  }
+}

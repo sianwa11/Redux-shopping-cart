@@ -37,5 +37,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &--1 {
+      border-radius: 6px;
+      border-style: solid;
+      border-color: #72ccca;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      flex-grow: 0.2;
+    }
+
+    &--text {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
   }
 }

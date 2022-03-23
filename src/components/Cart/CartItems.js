@@ -1,5 +1,8 @@
 import React from "react";
 import styles from "./CartItem.module.scss";
+import "../UI/Icons.scss";
+
+import { FaRegTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
 
 const CartItems = () => {
   return (
@@ -14,14 +17,22 @@ const CartItems = () => {
             </div>
           </div>
           <div className={styles.item__actions}>
-            <div className="item__actions--1">
-              <div className="buttons">+</div>
-              <div className="">Item Quantity</div>
-              <div className="buttons">-</div>
+            <div className={styles["item__actions--1"]}>
+              <div className="icon_btn">
+                <FaPlus />
+              </div>
+              <div className={styles["item__actions--text"]}>
+                <b>1</b>
+              </div>
+              <div className="icon_btn">
+                <FaMinus />
+              </div>
             </div>
 
             <div className="item__actions--2">
-              <div className="buttons">Delete</div>
+              <div className="icon_btn">
+                <FaRegTrashAlt />
+              </div>
             </div>
           </div>
         </div>
