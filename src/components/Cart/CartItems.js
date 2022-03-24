@@ -1,42 +1,40 @@
 import React from "react";
-import styles from "./CartItem.module.scss";
-import "../UI/Icons.scss";
 
-import { FaRegTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
+import Modal from "../UI/Modal/Modal";
+import styles from "./CartItem.module.scss";
+
+import Item from "./Item";
+
+const DUMMY = [
+  { id: 1, name: "Lenovo Yoga 510-chasis", price: 400, quantity: 1 },
+  {
+    id: 2,
+    name: "Introduction to Data Structures & Algorithms",
+    price: 86,
+    quantity: 1,
+  },
+  { id: 3, name: "PlayStation 5", price: 500, quantity: 1 },
+];
 
 const CartItems = () => {
   return (
     <>
-      <div className={styles.items}>
-        <div className={styles.item}>
-          <div className={styles.item__details}>
-            <div className={styles["item__details--price"]}>$86</div>
-            <div className={styles["item__details--name"]}>
-              Item NameIntroduction to Algorithms, 3rd Edition
-              <span>by Thomas H. Cormen</span>
-            </div>
-          </div>
-          <div className={styles.item__actions}>
-            <div className={styles["item__actions--1"]}>
-              <div className="icon_btn">
-                <FaPlus />
-              </div>
-              <div className={styles["item__actions--text"]}>
-                <b>1</b>
-              </div>
-              <div className="icon_btn">
-                <FaMinus />
-              </div>
-            </div>
-
-            <div className="item__actions--2">
-              <div className="icon_btn">
-                <FaRegTrashAlt />
-              </div>
-            </div>
-          </div>
+      <Modal>
+        <div className={styles.items}>
+          <button type="button" className={styles.items__btn}>
+            Checkout
+          </button>
+          <div>Total Amount: </div>
+          {DUMMY.map((item) => (
+            <Item
+              key={item.id}
+              amount={item.price}
+              itemName={item.name}
+              quantity={item.quantity}
+            />
+          ))}
         </div>
-      </div>
+      </Modal>
     </>
   );
 };
