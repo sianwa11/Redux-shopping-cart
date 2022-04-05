@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
 
@@ -8,6 +8,11 @@ import styles from "./Modal.module.scss";
 
 const Modal = (props) => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "unset");
+  }, []);
 
   const hideCart = (e) => {
     if (e.target === e.currentTarget) {
