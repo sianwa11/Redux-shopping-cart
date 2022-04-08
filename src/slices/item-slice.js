@@ -22,10 +22,32 @@ export const itemSlice = createSlice({
     loadingState(state, action) {
       state.status = action.payload;
     },
+
+    queueItem(state, action) {
+      state.items = state.items.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, queued: true };
+        }
+
+        return { ...item };
+      });
+    },
+
+    unqueueItem(state, action) {
+      state.items = state.items.map((item) => {
+        if (item.id === action.payload.id) {
+          delete item["queued"];
+          return { ...item };
+        }
+
+        return { ...item };
+      });
+    },
   },
 });
 
-export const { uploadItems, loadingState } = itemSlice.actions;
+export const { uploadItems, loadingState, queueItem, unqueueItem } =
+  itemSlice.actions;
 
 // thunk function
 export const fetchItems = () => {

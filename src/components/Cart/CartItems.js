@@ -23,7 +23,7 @@ const CartItems = () => {
             key={item.id}
             id={item.id}
             amount={item.price * item.quantity}
-            itemName={item.name}
+            itemTitle={item.title}
             quantity={item.quantity}
           />
         ))}

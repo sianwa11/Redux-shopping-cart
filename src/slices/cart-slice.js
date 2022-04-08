@@ -2,17 +2,17 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   visible: false,
-  items: [
-    { id: 1, name: "Lenovo Yoga 510-chasis", price: 35, quantity: 1 },
-    { id: 2, name: "Lenovo Yoga 510-SSD", price: 70, quantity: 1 },
-    { id: 3, name: "SONY Headphones", price: 12, quantity: 1 },
-  ],
+  items: [],
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    addItem(state, action) {
+      state.items.push({ ...action.payload, quantity: 1 });
+    },
+
     toggleCart(state, action) {
       state.visible = !state.visible;
     },
@@ -41,7 +41,12 @@ const cartSlice = createSlice({
   },
 });
 
-export const { toggleCart, deleteItem, decrementQuantity, incrementQuantity } =
-  cartSlice.actions;
+export const {
+  toggleCart,
+  deleteItem,
+  decrementQuantity,
+  incrementQuantity,
+  addItem,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

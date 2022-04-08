@@ -35,6 +35,7 @@ const ItemsList = () => {
             image={item.image}
             price={item.price}
             title={item.title}
+            queued={item.queued ? true : false}
             rating={item.rating.rate}
           />
         ))}
@@ -48,7 +49,6 @@ const ItemsList = () => {
     );
   }
 
-  console.log(items);
   return <>{itemsRendered}</>;
 };
 

@@ -7,7 +7,6 @@ import ItemsList from "./components/Items/ItemsList";
 
 function App() {
   const cartState = useSelector((state) => state.cart);
-  console.log(cartState.visible);
   return (
     <>
       <Header />

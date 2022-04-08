@@ -9,6 +9,7 @@ import {
   decrementQuantity,
   incrementQuantity,
 } from "../../slices/cart-slice";
+import { unqueueItem } from "../../slices/item-slice";
 import { FaRegTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
 
 const Item = (props) => {
@@ -16,6 +17,7 @@ const Item = (props) => {
 
   const removeItem = (id) => {
     dispatch(deleteItem({ id }));
+    dispatch(unqueueItem({ id }));
   };
 
   const addQuantity = (id) => {
@@ -32,7 +34,7 @@ const Item = (props) => {
         <div className={styles.item__details}>
           <div className={styles["item__details--price"]}>$ {props.amount}</div>
           <div className={styles["item__details--name"]}>
-            {props.itemName}
+            {props.itemTitle}
             <span>by Thomas H. Cormen</span>
           </div>
         </div>
