@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBuy2vjj10ul1cJUUW-QxShiHMT4mq_EYw",
+  apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
   authDomain: "shopping-cart-b0a9b.firebaseapp.com",
   databaseURL: "https://shopping-cart-b0a9b-default-rtdb.firebaseio.com",
   projectId: "shopping-cart-b0a9b",
