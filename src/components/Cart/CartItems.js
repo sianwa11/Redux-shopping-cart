@@ -13,8 +13,9 @@ const CartItems = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
   const { items } = cartState;
+  let totalAmount = 0;
 
-  function addCheckoutItems() {
+  const addCheckoutItems = () => {
     items.forEach((element) => {
       set(ref(database, "items/" + element.id), {
         title: element.title,
@@ -28,7 +29,12 @@ const CartItems = () => {
     });
 
     dispatch(resetState({}));
-    console.log("Items Bought");
+  };
+
+  if (cartState.visible) {
+    totalAmount = items
+      .reduce((prev, curr) => prev + curr.price * curr.quantity, 0)
+      .toFixed(2);
   }
 
   return (
@@ -38,11 +44,11 @@ const CartItems = () => {
           <button
             type="button"
             className={styles.items__btn}
-            onClick={addCheckoutItems}
+            onClick={items.length > 0 ? addCheckoutItems : () => {}}
           >
             Checkout
           </button>
-          <div>Total Amount: </div>
+          <h1>Total : $ {items.length === 0 ? 0 : totalAmount}</h1>
         </div>
         {items.map((item) => (
           <Item
